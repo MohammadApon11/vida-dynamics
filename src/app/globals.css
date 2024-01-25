@@ -2,32 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.text-primary {
+  @apply text-[#000e29];
+}
+.text-secondary {
+  @apply text-[#393939];
+}
+.bg-primary {
+  @apply bg-[#001d51];
+}
+.btn-primary {
+  @apply bg-[#ffba49] text-[#000] rounded-[30px] px-[40px] py-[12px] font-medium;
+}
+.btn-secondary {
+  @apply rounded-[30px] px-[40px] py-[12px] border-[1px] text-white font-medium;
+}
+.heading {
+  @apply text-[#000] font-bold text-[48px] text-center uppercase;
+}
+.text-greeny {
+  @apply text-[#1DAF2B];
+}
+.bg-greeny {
+  @apply bg-[#1DAF2B];
+}
+/* style for slick */
+.slick-dots li.slick-active {
+  background-color: #ffba49;
+  border-radius: 10px;
+  width: 40px;
+  height: 20px;
+  margin: 0 5px !important;
+  transition: all 0.5s;
+}
+.slick-dots li.slick-active button:before {
+  display: none;
+}
+.slick-dots li {
+  margin: 0 5px !important;
+}
+.slick-dots li button:before {
+  content: "○" !important;
+  font-size: 40px !important;
+  opacity: 1 !important;
+  line-height: 12px !important;
+}
+.slick-list {
+  border-radius: 20px !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/* earth */
+.proton-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #165179;
+  border-radius: 100%;
+}
+.orbit {
+  animation: rotate 20s linear infinite;
+}
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
   }
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.orbit2 {
+  animation: loading 2s linear infinite;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
